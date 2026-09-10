@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CropSphere Farmer Phone</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    min-height:100vh;
+    background:#d7d7d7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+}
+
+.phone{
+    width:345px;
+    padding:18px 16px 22px;
+    border-radius:35px;
+    background:linear-gradient(145deg,#484848,#181818);
+    box-shadow:
+    0 18px 35px rgba(0,0,0,.35),
+    inset 2px 2px 5px rgba(255,255,255,.15),
+    inset -3px -3px 7px rgba(0,0,0,.8);
+}
+
+.speaker{
+    width:75px;
+    height:7px;
+    margin:0 auto 12px;
+    border-radius:10px;
+    background:#080808;
+}
+
+.screen{
+    height:305px;
+    border:8px solid #0d0d0d;
+    border-radius:15px;
+    overflow:hidden;
+    background:#d9edcc;
+}
+
+.status{
+    height:27px;
+    padding:0 8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#173d20;
+    color:white;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.screen-content{
+    height:244px;
+    padding:11px;
+    overflow:hidden;
+    background:#d9edcc;
+}
+
+.softkeys{
+    height:27px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 9px;
+    background:#151515;
+    color:white;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.brand{
+    text-align:center;
+    color:#145c29;
+    font-size:21px;
+    font-weight:900;
+    margin:3px 0 12px;
+}
+
+.title{
+    text-align:center;
+    color:#173e1e;
+    font-size:15px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.number-title{
+    text-align:center;
+    color:#173e1e;
+    font-size:14px;
+    font-weight:bold;
+    margin-top:17px;
+}
+
+.number-box{
+    width:250px;
+    min-height:40px;
+    margin:15px auto 8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f2f8ed;
+    border:2px solid #507c4c;
+    border-radius:5px;
+    color:#102c16;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.help{
+    text-align:center;
+    color:#4c624d;
+    font-size:10px;
+    line-height:1.5;
+}
+
+.voiceTest{
+    display:block;
+    margin:8px auto;
+    padding:7px 12px;
+    border:none;
+    border-radius:5px;
+    background:#236d32;
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.message{
+    margin-top:5px;
+    text-align:center;
+    color:#a21e1e;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.lang{
+    height:35px;
+    margin:6px 0;
+    padding:8px 10px;
+    background:#edf6e8;
+    border:1px solid #779373;
+    border-radius:4px;
+    font-size:13px;
+}
+
+.lang.selected{
+    background:#1c6530;
+    color:white;
+    font-weight:bold;
+}
+
+.menu-title{
+    text-align:center;
+    color:#145c29;
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.menu-row{
+    height:30px;
+    padding:7px 8px;
+    border-radius:4px;
+    font-size:11px;
+}
+
+.menu-row.selected{
+    background:#1c6530;
+    color:white;
+    font-weight:bold;
+}
+
+.info-title{
+    text-align:center;
+    color:#145c29;
+    font-size:15px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.info-box{
+    height:190px;
+    overflow:auto;
+    background:#eff7ea;
+    border:1px solid #779373;
+    border-radius:5px;
+    padding:9px;
+    color:#203a23;
+    font-size:10px;
+    line-height:1.5;
+}
+
+.voice-status{
+    text-align:center;
+    color:#315d35;
+    font-size:9px;
+    margin-top:5px;
+}
+
+.control-area{
+    position:relative;
+    height:115px;
+    margin-top:13px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.call{
+    position:absolute;
+    left:28px;
+    top:61px;
+    width:52px;
+    height:36px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(#36a653,#126b2c);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 4px 0 #061c0b;
+}
+
+.end{
+    position:absolute;
+    right:28px;
+    top:61px;
+    width:52px;
+    height:36px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(#df3b3b,#8c1515);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 4px 0 #250505;
+}
+
+.call:active,
+.end:active{
+    transform:translateY(4px);
+}
+
+.dpad{
+    position:relative;
+    width:100px;
+    height:100px;
+}
+
+.dpad button{
+    position:absolute;
+    width:34px;
+    height:31px;
+    border:1px solid #080808;
+    border-radius:7px;
+    background:linear-gradient(#464646,#151515);
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 3px 0 #050505;
+}
+
+.up{
+    left:33px;
+    top:0;
+}
+
+.down{
+    left:33px;
+    bottom:0;
+}
+
+.left{
+    left:0;
+    top:34px;
+}
+
+.right{
+    right:0;
+    top:34px;
+}
+
+.ok{
+    left:33px;
+    top:34px;
+    background:linear-gradient(#328044,#154f25)!important;
+    font-size:9px!important;
+}
+
+.keypad{
+    margin-top:5px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+}
+
+.key{
+    height:48px;
+    border:1px solid #080808;
+    border-radius:8px;
+    background:linear-gradient(145deg,#404040,#111);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 4px 0 #050505;
+}
+
+.key:active{
+    transform:translateY(4px);
+    box-shadow:none;
+}
+
+.key small{
+    display:block;
+    color:#aaa;
+    font-size:7px;
+}
+
+.footer{
+    text-align:center;
+    color:#aaa;
+    font-size:8px;
+    margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+<div class="speaker"></div>
+
+<div class="screen">
+
+<div class="status">
+<span>4G</span>
+<span id="clock">00:00</span>
+<span>🔋</span>
+</div>
+
+<div id="screenContent" class="screen-content"></div>
+
+<div class="softkeys">
+<span id="softLeft">CLEAR</span>
+<span id="softRight">NEXT</span>
+</div>
+
+</div>
+
+
+<div class="control-area">
+
+<button class="call" onclick="callButton()">☎</button>
+
+<div class="dpad">
+
+<button class="up" onclick="moveUp()">▲</button>
+
+<button class="left" onclick="moveLeft()">◀</button>
+
+<button class="ok" onclick="selectButton()">OK</button>
+
+<button class="right" onclick="moveRight()">▶</button>
+
+<button class="down" onclick="moveDown()">▼</button>
+
+</div>
+
+<button class="end" onclick="endButton()">✕</button>
+
+</div>
+
+
+<div class="keypad">
+
+<button class="key" onclick="keyPress('1')">1</button>
+
+<button class="key" onclick="keyPress('2')">
+2<small>ABC</small>
+</button>
+
+<button class="key" onclick="keyPress('3')">
+3<small>DEF</small>
+</button>
+
+<button class="key" onclick="keyPress('4')">
+4<small>GHI</small>
+</button>
+
+<button class="key" onclick="keyPress('5')">
+5<small>JKL</small>
+</button>
+
+<button class="key" onclick="keyPress('6')">
+6<small>MNO</small>
+</button>
+
+<button class="key" onclick="keyPress('7')">
+7<small>PQRS</small>
+</button>
+
+<button class="key" onclick="keyPress('8')">
+8<small>TUV</small>
+</button>
+
+<button class="key" onclick="keyPress('9')">
+9<small>WXYZ</small>
+</button>
+
+<button class="key" onclick="keyPress('*')">*</button>
+
+<button class="key" onclick="keyPress('0')">0</button>
+
+<button class="key" onclick="keyPress('#')">#</button>
+
+</div>
+
+<div class="footer">
+CropSphere • Agriculture Assistance
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let page = "number";
+
+let farmerNumber = "";
+
+let languageIndex = 0;
+
+let menuIndex = 0;
+
+let voices = [];
+
+
+/* =========================
+   LANGUAGE DATA
+========================= */
+
+const data = [
+
+{
+name:"English",
+code:"en-IN",
+
+numberTitle:"ENTER FARMER NUMBER",
+
+help:"Enter 10 digit mobile number",
+
+menuTitle:"MAIN MENU",
+
+menu:[
+"Crop Information",
+"Disease Help",
+"Farmer Questions",
+"Agriculture Officer",
+"My Number"
+],
+
+info:[
+"Crop Information\n\nLearn basic information about crops, farming seasons and cultivation.",
+"Disease Help\n\nLearn about common crop diseases and basic prevention methods.",
+"Farmer Questions\n\nGet simple answers for common farming questions.",
+"Agriculture Officer\n\nPress the green CALL button to contact the agriculture officer.",
+"My Number\n\nYour registered farmer number is "
+],
+
+voice:{
+welcome:"Welcome to CropSphere. Please enter your ten digit farmer number.",
+language:"Please select your language.",
+menu:"Main menu.",
+success:"Number entered successfully.",
+invalid:"Please enter exactly ten digits.",
+crop:"Crop information.",
+disease:"Disease help.",
+questions:"Farmer questions.",
+officer:"Agriculture officer.",
+mynumber:"Your registered farmer number is"
+}
+},
+
+{
+
+name:"தமிழ்",
+code:"ta-IN",
+
+numberTitle:"விவசாயி எண்ணை உள்ளிடவும்",
+
+help:"10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
+
+menuTitle:"முக்கிய பட்டியல்",
+
+menu:[
+"பயிர் தகவல்",
+"நோய் உதவி",
+"விவசாயி கேள்விகள்",
+"வேளாண்மை அலுவலர்",
+"என் எண்"
+],
+
+info:[
+"பயிர் தகவல்\n\nபயிர்களைப் பற்றிய அடிப்படை விவசாய தகவல்களை அறிந்து கொள்ளலாம்.",
+"நோய் உதவி\n\nபயிர்களில் ஏற்படும் பொதுவான நோய்கள் மற்றும் தடுப்பு முறைகளை அறிந்து கொள்ளலாம்.",
+"விவசாயி கேள்விகள்\n\nபொதுவான விவசாய கேள்விகளுக்கான உதவியைப் பெறலாம்.",
+"வேளாண்மை அலுவலர்\n\nபச்சை CALL பொத்தானை அழுத்தி வேளாண்மை அலுவலரை தொடர்பு கொள்ளலாம்.",
+"என் எண்\n\nஉங்கள் விவசாயி பதிவு எண் "
+],
+
+voice:{
+welcome:"க்ராப் ஸ்பியர். உங்கள் பத்து இலக்க விவசாயி எண்ணை உள்ளிடவும்.",
+language:"உங்கள் மொழியை தேர்ந்தெடுக்கவும்.",
+menu:"முக்கிய பட்டியல்.",
+success:"எண் வெற்றிகரமாக உள்ளிடப்பட்டது.",
+invalid:"தயவுசெய்து பத்து இலக்க எண்ணை உள்ளிடவும்.",
+crop:"பயிர் தகவல்.",
+disease:"நோய் உதவி.",
+questions:"விவசாயி கேள்விகள்.",
+officer:"வேளாண்மை அலுவலர்.",
+mynumber:"உங்கள் விவசாயி பதிவு எண்"
+}
+},
+
+{
+
+name:"मराठी",
+code:"mr-IN",
+
+numberTitle:"शेतकरी नंबर टाका",
+
+help:"10 अंकी मोबाईल नंबर टाका",
+
+menuTitle:"मुख्य मेनू",
+
+menu:[
+"पीक माहिती",
+"रोग मदत",
+"शेतकरी प्रश्न",
+"कृषी अधिकारी",
+"माझा नंबर"
+],
+
+info:[
+"पीक माहिती\n\nपिकांबद्दल मूलभूत शेती माहिती मिळवा.",
+"रोग मदत\n\nपिकांमधील सामान्य रोग आणि प्रतिबंधक उपाय जाणून घ्या.",
+"शेतकरी प्रश्न\n\nसामान्य शेती प्रश्नांसाठी मदत मिळवा.",
+"कृषी अधिकारी\n\nहिरवे CALL बटन दाबून कृषी अधिकाऱ्याशी संपर्क करा.",
+"माझा नंबर\n\nतुमचा शेतकरी नोंदणी नंबर "
+],
+
+voice:{
+welcome:"क्रॉप स्पिअर. तुमचा दहा अंकी शेतकरी नंबर टाका.",
+language:"तुमची भाषा निवडा.",
+menu:"मुख्य मेनू.",
+success:"नंबर यशस्वीरित्या टाकला गेला.",
+invalid:"कृपया दहा अंकी नंबर टाका.",
+crop:"पीक माहिती.",
+disease:"रोग मदत.",
+questions:"शेतकरी प्रश्न.",
+officer:"कृषी अधिकारी.",
+mynumber:"तुमचा शेतकरी नोंदणी नंबर"
+}
+}
+
+];
+
+
+/* =========================
+   GET VOICES
+========================= */
+
+function loadVoices(){
+
+    voices = window.speechSynthesis.getVoices();
+
+}
+
+loadVoices();
+
+if("onvoiceschanged" in speechSynthesis){
+
+    speechSynthesis.onvoiceschanged = loadVoices;
+
+}
+
+
+/* =========================
+   FIND VOICE
+========================= */
+
+function findVoice(languageCode){
+
+    loadVoices();
+
+    let exact = voices.find(function(voice){
+
+        return voice.lang.toLowerCase() ===
+               languageCode.toLowerCase();
+
+    });
+
+    if(exact){
+        return exact;
+    }
+
+
+    let languageOnly =
+        languageCode.substring(0,2).toLowerCase();
+
+
+    return voices.find(function(voice){
+
+        return voice.lang
+        .toLowerCase()
+        .startsWith(languageOnly);
+
+    }) || null;
+
+}
+
+
+/* =========================
+   SPEAK
+========================= */
+
+function speak(text){
+
+    if(!("speechSynthesis" in window)){
+
+        alert("This browser does not support voice.");
+
+        return;
+
+    }
+
+    loadVoices();
+
+    let currentLanguage =
+        data[languageIndex];
+
+    let voice =
+        findVoice(currentLanguage.code);
+
+
+    window.speechSynthesis.cancel();
+
+
+    let speech =
+        new SpeechSynthesisUtterance(text);
+
+
+    speech.lang =
+        currentLanguage.code;
+
+    speech.rate = 0.78;
+
+    speech.pitch = 1;
+
+    speech.volume = 1;
+
+
+    if(voice){
+
+        speech.voice = voice;
+
+    }
+
+
+    speech.onstart = function(){
+
+        updateVoiceStatus(
+            "🔊 Speaking"
+        );
+
+    };
+
+
+    speech.onend = function(){
+
+        updateVoiceStatus(
+            "🔊 Voice ready"
+        );
+
+    };
+
+
+    speech.onerror = function(){
+
+        updateVoiceStatus(
+            "⚠ Voice error"
+        );
+
+    };
+
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+/* =========================
+   VOICE TEST
+========================= */
+
+function testVoice(){
+
+    let lang = data[languageIndex];
+
+    let voice = findVoice(lang.code);
+
+    if(!voice){
+
+        updateVoiceStatus(
+            "⚠ " + lang.name +
+            " voice not available"
+        );
+
+        alert(
+            lang.name +
+            " voice is not available on this phone/browser."
+        );
+
+        return;
+
+    }
+
+    speak(lang.voice.menu);
+
+}
+
+
+/* =========================
+   VOICE STATUS
+========================= */
+
+function updateVoiceStatus(text){
+
+    let box =
+        document.getElementById("voiceStatus");
+
+    if(box){
+
+        box.innerText = text;
+
+    }
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function render(){
+
+    let screen =
+        document.getElementById("screenContent");
+
+    let lang =
+        data[languageIndex];
+
+
+    /* NUMBER */
+
+    if(page === "number"){
+
+        screen.innerHTML = `
+
+        <div class="brand">
+            CropSphere
+        </div>
+
+        <div class="number-title">
+            ${lang.numberTitle}
+        </div>
+
+        <div class="number-box">
+            ${farmerNumber || "__________"}
+        </div>
+
+        <div class="help">
+            ${lang.help}
+        </div>
+
+        <button class="voiceTest"
+                onclick="testVoice()">
+            🔊 TEST VOICE
+        </button>
+
+        <div id="voiceStatus"
+             class="voice-status">
+            🔊 Voice ready
+        </div>
+        `;
+
+        return;
+    }
+
+
+    /* LANGUAGE */
+
+    if(page === "language"){
+
+        screen.innerHTML = `
+
+        <div class="title">
+            SELECT LANGUAGE
+        </div>
+
+        <div class="lang ${languageIndex===0?"selected":""}">
+            1. English
+        </div>
+
+        <div class="lang ${languageIndex===1?"selected":""}">
+            2. தமிழ்
+        </div>
+
+        <div class="lang ${languageIndex===2?"selected":""}">
+            3. मराठी
+        </div>
+
+        <button class="voiceTest"
+                onclick="testVoice()">
+            🔊 TEST VOICE
+        </button>
+
+        <div id="voiceStatus"
+             class="voice-status">
+            🔊 Voice ready
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* MENU */
+
+    if(page === "menu"){
+
+        screen.innerHTML = `
+
+        <div class="menu-title">
+            ${lang.menuTitle}
+        </div>
+
+        ${lang.menu.map(function(item,index){
+
+            return `
+            <div class="menu-row
+            ${index===menuIndex?"selected":""}">
+                ${index+1}. ${item}
+            </div>
+            `;
+
+        }).join("")}
+
+        <button class="voiceTest"
+                onclick="speakMenu()">
+            🔊 READ MENU
+        </button>
+
+        <div id="voiceStatus"
+             class="voice-status">
+            🔊 Voice ready
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* INFO */
+
+    if(page === "info"){
+
+        let text =
+            lang.info[menuIndex];
+
+        if(menuIndex === 4){
+
+            text += farmerNumber;
+
+        }
+
+
+        screen.innerHTML = `
+
+        <div class="info-title">
+            ${lang.menu[menuIndex]}
+        </div>
+
+        <div class="info-box">
+            ${text.replace(/\n/g,"<br>")}
+        </div>
+
+        <button class="voiceTest"
+                onclick="speakInfo()">
+            🔊 READ INFORMATION
+        </button>
+
+        <div id="voiceStatus"
+             class="voice-status">
+            🔊 Voice ready
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   KEYPAD
+========================= */
+
+function keyPress(key){
+
+    /* NUMBER PAGE */
+
+    if(page === "number"){
+
+        if(key >= "0" && key <= "9"){
+
+            if(farmerNumber.length < 10){
+
+                farmerNumber += key;
+
+                render();
+
+            }
+
+            return;
+        }
+
+
+        if(key === "*"){
+
+            farmerNumber =
+                farmerNumber.slice(0,-1);
+
+            render();
+
+            return;
+        }
+
+
+        if(key === "#"){
+
+            if(farmerNumber.length === 10){
+
+                page = "language";
+
+                render();
+
+                speak(
+                    data[languageIndex]
+                    .voice.language
+                );
+
+            }else{
+
+                speak(
+                    data[languageIndex]
+                    .voice.invalid
+                );
+
+            }
+
+            return;
+        }
+
+    }
+
+
+    /* LANGUAGE */
+
+    if(page === "language"){
+
+        if(key === "1"){
+
+            languageIndex = 0;
+
+            chooseLanguage();
+
+        }
+
+        if(key === "2"){
+
+            languageIndex = 1;
+
+            chooseLanguage();
+
+        }
+
+        if(key === "3"){
+
+            languageIndex = 2;
+
+            chooseLanguage();
+
+        }
+
+        return;
+    }
+
+
+    /* MENU */
+
+    if(page === "menu"){
+
+        let number =
+            parseInt(key);
+
+        if(number >= 1 && number <= 5){
+
+            menuIndex =
+                number - 1;
+
+            page = "info";
+
+            render();
+
+            speakInfo();
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+function chooseLanguage(){
+
+    render();
+
+    setTimeout(function(){
+
+        page = "menu";
+
+        render();
+
+        speak(
+            data[languageIndex]
+            .voice.menu
+        );
+
+    },500);
+
+}
+
+
+/* =========================
+   MENU VOICE
+========================= */
+
+function speakMenu(){
+
+    speak(
+        data[languageIndex]
+        .voice.menu
+    );
+
+}
+
+
+/* =========================
+   INFO VOICE
+========================= */
+
+function speakInfo(){
+
+    let voice =
+        data[languageIndex].voice;
+
+
+    if(menuIndex === 0){
+
+        speak(voice.crop);
+
+    }
+
+    else if(menuIndex === 1){
+
+        speak(voice.disease);
+
+    }
+
+    else if(menuIndex === 2){
+
+        speak(voice.questions);
+
+    }
+
+    else if(menuIndex === 3){
+
+        speak(voice.officer);
+
+    }
+
+    else if(menuIndex === 4){
+
+        speak(
+            voice.mynumber +
+            " " +
+            farmerNumber
+        );
+
+    }
+
+}
+
+
+/* =========================
+   DPAD UP
+========================= */
+
+function moveUp(){
+
+    if(page === "language"){
+
+        languageIndex--;
+
+        if(languageIndex < 0){
+
+            languageIndex = 2;
+
+        }
+
+        render();
+
+    }
+
+    else if(page === "menu"){
+
+        menuIndex--;
+
+        if(menuIndex < 0){
+
+            menuIndex = 4;
+
+        }
+
+        render();
+
+    }
+
+}
+
+
+/* =========================
+   DPAD DOWN
+========================= */
+
+function moveDown(){
+
+    if(page === "language"){
+
+        languageIndex++;
+
+        if(languageIndex > 2){
+
+            languageIndex = 0;
+
+        }
+
+        render();
+
+    }
+
+    else if(page === "menu"){
+
+        menuIndex++;
+
+        if(menuIndex > 4){
+
+            menuIndex = 0;
+
+        }
+
+        render();
+
+    }
+
+}
+
+
+/* =========================
+   LEFT
+========================= */
+
+function moveLeft(){
+
+    if(page === "info"){
+
+        page = "menu";
+
+        render();
+
+        speakMenu();
+
+    }
+
+}
+
+
+/* =========================
+   RIGHT
+========================= */
+
+function moveRight(){
+
+    if(page === "number"){
+
+        if(farmerNumber.length === 10){
+
+            page = "language";
+
+            render();
+
+            speak(
+                data[languageIndex]
+                .voice.language
+            );
+
+        }else{
+
+            speak(
+                data[languageIndex]
+                .voice.invalid
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   OK
+========================= */
+
+function selectButton(){
+
+    if(page === "language"){
+
+        chooseLanguage();
+
+    }
+
+    else if(page === "menu"){
+
+        page = "info";
+
+        render();
+
+        speakInfo();
+
+    }
+
+}
+
+
+/* =========================
+   END
+========================= */
+
+function endButton(){
+
+    window.speechSynthesis.cancel();
+
+
+    if(page === "number"){
+
+        farmerNumber = "";
+
+        render();
+
+    }
+
+    else if(page === "language"){
+
+        page = "number";
+
+        render();
+
+    }
+
+    else if(page === "menu"){
+
+        page = "language";
+
+        render();
+
+    }
+
+    else if(page === "info"){
+
+        page = "menu";
+
+        render();
+
+    }
+
+}
+
+
+/* =========================
+   CALL
+========================= */
+
+function callButton(){
+
+    if(farmerNumber.length !== 10){
+
+        speak(
+            data[languageIndex]
+            .voice.invalid
+        );
+
+        return;
+
+    }
+
+
+    let message;
+
+
+    if(languageIndex === 0){
+
+        message =
+        "Connecting to agriculture officer.";
+
+    }
+
+    else if(languageIndex === 1){
+
+        message =
+        "வேளாண்மை அலுவலரை தொடர்பு கொள்கிறோம்.";
+
+    }
+
+    else{
+
+        message =
+        "कृषी अधिकाऱ्याशी संपर्क साधत आहोत.";
+
+    }
+
+
+    speak(message);
+
+
+    setTimeout(function(){
+
+        /*
+        Demo agriculture helpline.
+        Change this number if needed.
+        */
+
+        window.location.href =
+        "tel:18001801551";
+
+    },1800);
+
+}
+
+
+/* =========================
+   CLOCK
+========================= */
+
+function updateClock(){
+
+    let now = new Date();
+
+    let hours =
+        String(now.getHours())
+        .padStart(2,"0");
+
+    let minutes =
+        String(now.getMinutes())
+        .padStart(2,"0");
+
+    document.getElementById("clock")
+    .innerText =
+        hours + ":" + minutes;
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key >= "0" &&
+        event.key <= "9"
+    ){
+
+        keyPress(event.key);
+
+    }
+
+    else if(event.key === "*"){
+
+        keyPress("*");
+
+    }
+
+    else if(event.key === "#"){
+
+        keyPress("#");
+
+    }
+
+    else if(event.key === "ArrowUp"){
+
+        moveUp();
+
+    }
+
+    else if(event.key === "ArrowDown"){
+
+        moveDown();
+
+    }
+
+    else if(event.key === "ArrowLeft"){
+
+        moveLeft();
+
+    }
+
+    else if(event.key === "ArrowRight"){
+
+        moveRight();
+
+    }
+
+    else if(event.key === "Enter"){
+
+        selectButton();
+
+    }
+
+    else if(event.key === "Escape"){
+
+        endButton();
+
+    }
+
+});
+
+
+/* =========================
+   START
+========================= */
+
+render();
+
+setTimeout(function(){
+
+    loadVoices();
+
+    render();
+
+},1000);
+
+</script>
+
+</body>
+</html>
