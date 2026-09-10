@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CropSphere Farmer Phone</title>
+
+<title>CropSphere Farmer Assistance</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -27,6 +29,7 @@ body{
     padding:18px 16px 22px;
     border-radius:35px;
     background:linear-gradient(145deg,#484848,#181818);
+
     box-shadow:
     0 18px 35px rgba(0,0,0,.35),
     inset 2px 2px 5px rgba(255,255,255,.15),
@@ -52,11 +55,14 @@ body{
 .status{
     height:27px;
     padding:0 8px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     background:#173d20;
     color:white;
+
     font-size:11px;
     font-weight:bold;
 }
@@ -64,18 +70,25 @@ body{
 .screen-content{
     height:244px;
     padding:11px;
-    overflow:hidden;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
     background:#d9edcc;
 }
 
 .softkeys{
     height:27px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     padding:0 9px;
+
     background:#151515;
     color:white;
+
     font-size:9px;
     font-weight:bold;
 }
@@ -83,77 +96,98 @@ body{
 .brand{
     text-align:center;
     color:#145c29;
+
     font-size:21px;
     font-weight:900;
-    margin:3px 0 12px;
-}
 
-.title{
-    text-align:center;
-    color:#173e1e;
-    font-size:15px;
-    font-weight:bold;
-    margin-bottom:10px;
+    margin:3px 0 12px;
 }
 
 .number-title{
     text-align:center;
+
     color:#173e1e;
+
     font-size:14px;
     font-weight:bold;
+
     margin-top:17px;
 }
 
 .number-box{
     width:250px;
     min-height:40px;
+
     margin:15px auto 8px;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:#f2f8ed;
+
     border:2px solid #507c4c;
     border-radius:5px;
+
     color:#102c16;
+
     font-size:18px;
     font-weight:bold;
+
     letter-spacing:2px;
 }
 
 .help{
     text-align:center;
+
     color:#4c624d;
+
     font-size:10px;
+
     line-height:1.5;
 }
 
-.voiceTest{
+.voice-button{
     display:block;
+
     margin:8px auto;
+
     padding:7px 12px;
-    border:none;
+
+    border:0;
     border-radius:5px;
+
     background:#236d32;
+
     color:white;
+
     font-size:10px;
     font-weight:bold;
+
+    cursor:pointer;
 }
 
-.message{
-    margin-top:5px;
+.voice-status{
     text-align:center;
-    color:#a21e1e;
-    font-size:10px;
-    font-weight:bold;
+
+    color:#315d35;
+
+    font-size:9px;
+
+    margin-top:5px;
 }
 
 .lang{
     height:35px;
+
     margin:6px 0;
     padding:8px 10px;
+
     background:#edf6e8;
+
     border:1px solid #779373;
     border-radius:4px;
+
     font-size:13px;
 }
 
@@ -165,56 +199,96 @@ body{
 
 .menu-title{
     text-align:center;
+
     color:#145c29;
+
     font-size:16px;
     font-weight:bold;
+
     margin-bottom:7px;
 }
 
 .menu-row{
     height:30px;
+
     padding:7px 8px;
+
     border-radius:4px;
+
     font-size:11px;
 }
 
 .menu-row.selected{
     background:#1c6530;
+
     color:white;
+
     font-weight:bold;
 }
 
 .info-title{
     text-align:center;
+
     color:#145c29;
+
     font-size:15px;
     font-weight:bold;
+
     margin-bottom:8px;
 }
 
 .info-box{
-    height:190px;
-    overflow:auto;
+    min-height:170px;
+
     background:#eff7ea;
+
     border:1px solid #779373;
     border-radius:5px;
+
     padding:9px;
+
     color:#203a23;
+
     font-size:10px;
+
     line-height:1.5;
 }
 
-.voice-status{
-    text-align:center;
-    color:#315d35;
-    font-size:9px;
-    margin-top:5px;
+.disease-card{
+    background:#eff7ea;
+
+    border:1px solid #779373;
+
+    border-radius:5px;
+
+    padding:8px;
+
+    margin-bottom:7px;
+
+    color:#203a23;
+
+    font-size:10px;
+
+    line-height:1.45;
+}
+
+.disease-name{
+    color:#145c29;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:4px;
 }
 
 .control-area{
     position:relative;
+
     height:115px;
+
     margin-top:13px;
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -222,32 +296,50 @@ body{
 
 .call{
     position:absolute;
+
     left:28px;
     top:61px;
+
     width:52px;
     height:36px;
+
     border:none;
     border-radius:18px;
+
     background:linear-gradient(#36a653,#126b2c);
+
     color:white;
+
     font-size:18px;
     font-weight:bold;
+
     box-shadow:0 4px 0 #061c0b;
+
+    cursor:pointer;
 }
 
 .end{
     position:absolute;
+
     right:28px;
     top:61px;
+
     width:52px;
     height:36px;
+
     border:none;
     border-radius:18px;
+
     background:linear-gradient(#df3b3b,#8c1515);
+
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     box-shadow:0 4px 0 #250505;
+
+    cursor:pointer;
 }
 
 .call:active,
@@ -257,21 +349,31 @@ body{
 
 .dpad{
     position:relative;
+
     width:100px;
     height:100px;
 }
 
 .dpad button{
     position:absolute;
+
     width:34px;
     height:31px;
+
     border:1px solid #080808;
+
     border-radius:7px;
+
     background:linear-gradient(#464646,#151515);
+
     color:white;
+
     font-size:14px;
     font-weight:bold;
+
     box-shadow:0 3px 0 #050505;
+
+    cursor:pointer;
 }
 
 .up{
@@ -297,47 +399,70 @@ body{
 .ok{
     left:33px;
     top:34px;
+
     background:linear-gradient(#328044,#154f25)!important;
+
     font-size:9px!important;
 }
 
 .keypad{
     margin-top:5px;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:7px;
 }
 
 .key{
     height:48px;
+
     border:1px solid #080808;
+
     border-radius:8px;
+
     background:linear-gradient(145deg,#404040,#111);
+
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     box-shadow:0 4px 0 #050505;
+
+    cursor:pointer;
 }
 
 .key:active{
     transform:translateY(4px);
+
     box-shadow:none;
 }
 
 .key small{
     display:block;
+
     color:#aaa;
+
     font-size:7px;
+
+    margin-top:1px;
 }
 
 .footer{
     text-align:center;
+
     color:#aaa;
+
     font-size:8px;
+
     margin-top:8px;
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -345,90 +470,161 @@ body{
 
 <div class="speaker"></div>
 
+
 <div class="screen">
 
 <div class="status">
+
 <span>4G</span>
+
 <span id="clock">00:00</span>
+
 <span>🔋</span>
+
 </div>
 
-<div id="screenContent" class="screen-content"></div>
+
+<div id="screenContent"
+     class="screen-content">
+</div>
+
 
 <div class="softkeys">
+
 <span id="softLeft">CLEAR</span>
+
 <span id="softRight">NEXT</span>
-</div>
 
 </div>
 
+</div>
+
+
+<!-- CONTROL AREA -->
 
 <div class="control-area">
 
-<button class="call" onclick="callButton()">☎</button>
+<button class="call"
+        onclick="callOfficer()">
+☎
+</button>
+
 
 <div class="dpad">
 
-<button class="up" onclick="moveUp()">▲</button>
+<button class="up"
+        onclick="moveUp()">
+▲
+</button>
 
-<button class="left" onclick="moveLeft()">◀</button>
+<button class="left"
+        onclick="moveLeft()">
+◀
+</button>
 
-<button class="ok" onclick="selectButton()">OK</button>
+<button class="ok"
+        onclick="selectOK()">
+OK
+</button>
 
-<button class="right" onclick="moveRight()">▶</button>
+<button class="right"
+        onclick="moveRight()">
+▶
+</button>
 
-<button class="down" onclick="moveDown()">▼</button>
+<button class="down"
+        onclick="moveDown()">
+▼
+</button>
 
 </div>
 
-<button class="end" onclick="endButton()">✕</button>
+
+<button class="end"
+        onclick="goBack()">
+✕
+</button>
 
 </div>
 
+
+<!-- KEYPAD -->
 
 <div class="keypad">
 
-<button class="key" onclick="keyPress('1')">1</button>
-
-<button class="key" onclick="keyPress('2')">
-2<small>ABC</small>
+<button class="key"
+        onclick="keyPress('1')">
+1
 </button>
 
-<button class="key" onclick="keyPress('3')">
-3<small>DEF</small>
+<button class="key"
+        onclick="keyPress('2')">
+2
+<small>ABC</small>
 </button>
 
-<button class="key" onclick="keyPress('4')">
-4<small>GHI</small>
+<button class="key"
+        onclick="keyPress('3')">
+3
+<small>DEF</small>
 </button>
 
-<button class="key" onclick="keyPress('5')">
-5<small>JKL</small>
+
+<button class="key"
+        onclick="keyPress('4')">
+4
+<small>GHI</small>
 </button>
 
-<button class="key" onclick="keyPress('6')">
-6<small>MNO</small>
+<button class="key"
+        onclick="keyPress('5')">
+5
+<small>JKL</small>
 </button>
 
-<button class="key" onclick="keyPress('7')">
-7<small>PQRS</small>
+<button class="key"
+        onclick="keyPress('6')">
+6
+<small>MNO</small>
 </button>
 
-<button class="key" onclick="keyPress('8')">
-8<small>TUV</small>
+
+<button class="key"
+        onclick="keyPress('7')">
+7
+<small>PQRS</small>
 </button>
 
-<button class="key" onclick="keyPress('9')">
-9<small>WXYZ</small>
+<button class="key"
+        onclick="keyPress('8')">
+8
+<small>TUV</small>
 </button>
 
-<button class="key" onclick="keyPress('*')">*</button>
+<button class="key"
+        onclick="keyPress('9')">
+9
+<small>WXYZ</small>
+</button>
 
-<button class="key" onclick="keyPress('0')">0</button>
 
-<button class="key" onclick="keyPress('#')">#</button>
+<button class="key"
+        onclick="keyPress('*')">
+*
+</button>
+
+<button class="key"
+        onclick="keyPress('0')">
+0
+</button>
+
+<button class="key"
+        onclick="keyPress('#')">
+#
+</button>
 
 </div>
+
 
 <div class="footer">
 CropSphere • Agriculture Assistance
@@ -439,9 +635,9 @@ CropSphere • Agriculture Assistance
 
 <script>
 
-/* =========================
-   VARIABLES
-========================= */
+/* =========================================
+   BASIC VARIABLES
+========================================= */
 
 let page = "number";
 
@@ -451,17 +647,19 @@ let languageIndex = 0;
 
 let menuIndex = 0;
 
-let voices = [];
+let diseaseIndex = 0;
 
 
-/* =========================
+/* =========================================
    LANGUAGE DATA
-========================= */
+========================================= */
 
-const data = [
+const languages = [
 
 {
+
 name:"English",
+
 code:"en-IN",
 
 numberTitle:"ENTER FARMER NUMBER",
@@ -478,38 +676,55 @@ menu:[
 "My Number"
 ],
 
-info:[
-"Crop Information\n\nLearn basic information about crops, farming seasons and cultivation.",
-"Disease Help\n\nLearn about common crop diseases and basic prevention methods.",
-"Farmer Questions\n\nGet simple answers for common farming questions.",
-"Agriculture Officer\n\nPress the green CALL button to contact the agriculture officer.",
-"My Number\n\nYour registered farmer number is "
-],
-
 voice:{
-welcome:"Welcome to CropSphere. Please enter your ten digit farmer number.",
-language:"Please select your language.",
-menu:"Main menu.",
-success:"Number entered successfully.",
-invalid:"Please enter exactly ten digits.",
-crop:"Crop information.",
-disease:"Disease help.",
-questions:"Farmer questions.",
-officer:"Agriculture officer.",
-mynumber:"Your registered farmer number is"
+welcome:
+"Welcome to CropSphere. Please enter your ten digit farmer number.",
+
+language:
+"Please select your language.",
+
+menu:
+"Main menu.",
+
+invalid:
+"Please enter exactly ten digits.",
+
+success:
+"Number entered successfully.",
+
+crop:
+"Crop information selected.",
+
+disease:
+"Disease help selected.",
+
+questions:
+"Farmer questions selected.",
+
+officer:
+"Agriculture officer selected.",
+
+number:
+"Your registered farmer number is"
 }
+
 },
+
 
 {
 
 name:"தமிழ்",
+
 code:"ta-IN",
 
-numberTitle:"விவசாயி எண்ணை உள்ளிடவும்",
+numberTitle:
+"விவசாயி எண்ணை உள்ளிடவும்",
 
-help:"10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
+help:
+"10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
 
-menuTitle:"முக்கிய பட்டியல்",
+menuTitle:
+"முக்கிய பட்டியல்",
 
 menu:[
 "பயிர் தகவல்",
@@ -519,38 +734,57 @@ menu:[
 "என் எண்"
 ],
 
-info:[
-"பயிர் தகவல்\n\nபயிர்களைப் பற்றிய அடிப்படை விவசாய தகவல்களை அறிந்து கொள்ளலாம்.",
-"நோய் உதவி\n\nபயிர்களில் ஏற்படும் பொதுவான நோய்கள் மற்றும் தடுப்பு முறைகளை அறிந்து கொள்ளலாம்.",
-"விவசாயி கேள்விகள்\n\nபொதுவான விவசாய கேள்விகளுக்கான உதவியைப் பெறலாம்.",
-"வேளாண்மை அலுவலர்\n\nபச்சை CALL பொத்தானை அழுத்தி வேளாண்மை அலுவலரை தொடர்பு கொள்ளலாம்.",
-"என் எண்\n\nஉங்கள் விவசாயி பதிவு எண் "
-],
-
 voice:{
-welcome:"க்ராப் ஸ்பியர். உங்கள் பத்து இலக்க விவசாயி எண்ணை உள்ளிடவும்.",
-language:"உங்கள் மொழியை தேர்ந்தெடுக்கவும்.",
-menu:"முக்கிய பட்டியல்.",
-success:"எண் வெற்றிகரமாக உள்ளிடப்பட்டது.",
-invalid:"தயவுசெய்து பத்து இலக்க எண்ணை உள்ளிடவும்.",
-crop:"பயிர் தகவல்.",
-disease:"நோய் உதவி.",
-questions:"விவசாயி கேள்விகள்.",
-officer:"வேளாண்மை அலுவலர்.",
-mynumber:"உங்கள் விவசாயி பதிவு எண்"
+
+welcome:
+"க்ராப் ஸ்பியர். உங்கள் பத்து இலக்க விவசாயி எண்ணை உள்ளிடவும்.",
+
+language:
+"உங்கள் மொழியை தேர்ந்தெடுக்கவும்.",
+
+menu:
+"முக்கிய பட்டியல்.",
+
+invalid:
+"தயவுசெய்து பத்து இலக்க எண்ணை உள்ளிடவும்.",
+
+success:
+"எண் வெற்றிகரமாக உள்ளிடப்பட்டது.",
+
+crop:
+"பயிர் தகவல் தேர்ந்தெடுக்கப்பட்டது.",
+
+disease:
+"நோய் உதவி தேர்ந்தெடுக்கப்பட்டது.",
+
+questions:
+"விவசாயி கேள்விகள் தேர்ந்தெடுக்கப்பட்டது.",
+
+officer:
+"வேளாண்மை அலுவலர் தேர்ந்தெடுக்கப்பட்டது.",
+
+number:
+"உங்கள் விவசாயி பதிவு எண்"
+
 }
+
 },
+
 
 {
 
 name:"मराठी",
+
 code:"mr-IN",
 
-numberTitle:"शेतकरी नंबर टाका",
+numberTitle:
+"शेतकरी नंबर टाका",
 
-help:"10 अंकी मोबाईल नंबर टाका",
+help:
+"10 अंकी मोबाईल नंबर टाका",
 
-menuTitle:"मुख्य मेनू",
+menuTitle:
+"मुख्य मेनू",
 
 menu:[
 "पीक माहिती",
@@ -560,224 +794,301 @@ menu:[
 "माझा नंबर"
 ],
 
-info:[
-"पीक माहिती\n\nपिकांबद्दल मूलभूत शेती माहिती मिळवा.",
-"रोग मदत\n\nपिकांमधील सामान्य रोग आणि प्रतिबंधक उपाय जाणून घ्या.",
-"शेतकरी प्रश्न\n\nसामान्य शेती प्रश्नांसाठी मदत मिळवा.",
-"कृषी अधिकारी\n\nहिरवे CALL बटन दाबून कृषी अधिकाऱ्याशी संपर्क करा.",
-"माझा नंबर\n\nतुमचा शेतकरी नोंदणी नंबर "
-],
-
 voice:{
-welcome:"क्रॉप स्पिअर. तुमचा दहा अंकी शेतकरी नंबर टाका.",
-language:"तुमची भाषा निवडा.",
-menu:"मुख्य मेनू.",
-success:"नंबर यशस्वीरित्या टाकला गेला.",
-invalid:"कृपया दहा अंकी नंबर टाका.",
-crop:"पीक माहिती.",
-disease:"रोग मदत.",
-questions:"शेतकरी प्रश्न.",
-officer:"कृषी अधिकारी.",
-mynumber:"तुमचा शेतकरी नोंदणी नंबर"
+
+welcome:
+"क्रॉप स्फिअर. तुमचा दहा अंकी शेतकरी नंबर टाका.",
+
+language:
+"तुमची भाषा निवडा.",
+
+menu:
+"मुख्य मेनू.",
+
+invalid:
+"कृपया दहा अंकी नंबर टाका.",
+
+success:
+"नंबर यशस्वीरित्या टाकला गेला.",
+
+crop:
+"पीक माहिती निवडली.",
+
+disease:
+"रोग मदत निवडली.",
+
+questions:
+"शेतकरी प्रश्न निवडले.",
+
+officer:
+"कृषी अधिकारी निवडला.",
+
+number:
+"तुमचा शेतकरी नोंदणी नंबर"
+
 }
+
 }
 
 ];
 
 
-/* =========================
-   GET VOICES
-========================= */
+/* =========================================
+   DISEASE DATABASE
+========================================= */
+
+const diseases = [
+
+{
+
+name:[
+"Tomato Early Blight",
+"தக்காளி இலைக்கருகல் நோய்",
+"टोमॅटो अर्ली ब्लाइट"
+],
+
+symptoms:[
+"Brown circular spots appear on older leaves.",
+"இலைகளில் பழுப்பு நிற வட்ட வடிவ புள்ளிகள் தோன்றும்.",
+"जुन्या पानांवर तपकिरी गोल डाग दिसतात."
+],
+
+prevention:[
+"Remove infected leaves and keep the field clean.",
+"பாதிக்கப்பட்ட இலைகளை அகற்றி வயலை சுத்தமாக வைத்திருக்கவும்.",
+"रोगट पाने काढून शेत स्वच्छ ठेवा."
+]
+
+},
+
+
+{
+
+name:[
+"Rice Blast",
+"நெல் குலைநோய்",
+"भात करपा रोग"
+],
+
+symptoms:[
+"Spindle-shaped spots may appear on rice leaves.",
+"நெல் இலைகளில் நீளமான புள்ளிகள் தோன்றலாம்.",
+"भाताच्या पानांवर लांबट डाग दिसू शकतात."
+],
+
+prevention:[
+"Use healthy seeds and avoid excessive nitrogen fertilizer.",
+"நல்ல தரமான விதைகளை பயன்படுத்தி அதிக நைட்ரஜன் உரத்தை தவிர்க்கவும்.",
+"निरोगी बियाणे वापरा आणि जास्त नायट्रोजन खत टाळा."
+]
+
+},
+
+
+{
+
+name:[
+"Powdery Mildew",
+"சாம்பல் பூஞ்சை நோய்",
+"भुरी रोग"
+],
+
+symptoms:[
+"White powder-like growth appears on leaves.",
+"இலைகளில் வெள்ளை நிற தூள் போன்ற படலம் காணப்படும்.",
+"पानांवर पांढऱ्या पावडरसारखी वाढ दिसते."
+],
+
+prevention:[
+"Maintain proper spacing and good air circulation.",
+"செடிகளுக்கு சரியான இடைவெளி கொடுத்து நல்ல காற்றோட்டத்தை ஏற்படுத்தவும்.",
+"झाडांमध्ये योग्य अंतर ठेवा आणि हवा खेळती ठेवा."
+]
+
+}
+
+];
+
+
+/* =========================================
+   FARMER QUESTIONS
+========================================= */
+
+const questions = [
+
+{
+
+en:"What should I do before planting?",
+
+ta:"நடவு செய்வதற்கு முன் என்ன செய்ய வேண்டும்?",
+
+mr:"लागवडीपूर्वी काय करावे?"
+
+},
+
+{
+
+en:"Why is my crop turning yellow?",
+
+ta:"என் பயிர் ஏன் மஞ்சள் நிறமாகிறது?",
+
+mr:"माझे पीक पिवळे का होत आहे?"
+
+},
+
+{
+
+en:"When should I water my crop?",
+
+ta:"பயிருக்கு எப்போது தண்ணீர் கொடுக்க வேண்டும்?",
+
+mr:"पिकाला पाणी कधी द्यावे?"
+
+}
+
+];
+
+
+/* =========================================
+   SPEECH SYSTEM
+========================================= */
+
+let voices = [];
+
 
 function loadVoices(){
 
-    voices = window.speechSynthesis.getVoices();
+    voices =
+    speechSynthesis.getVoices();
 
 }
+
 
 loadVoices();
 
+
 if("onvoiceschanged" in speechSynthesis){
 
-    speechSynthesis.onvoiceschanged = loadVoices;
+    speechSynthesis.onvoiceschanged =
+    loadVoices;
 
 }
 
 
-/* =========================
-   FIND VOICE
-========================= */
+/* =========================================
+   FIND LANGUAGE VOICE
+========================================= */
 
-function findVoice(languageCode){
+function findVoice(code){
 
     loadVoices();
 
-    let exact = voices.find(function(voice){
 
-        return voice.lang.toLowerCase() ===
-               languageCode.toLowerCase();
+    let exact =
+    voices.find(function(v){
+
+        return v.lang.toLowerCase() ===
+        code.toLowerCase();
 
     });
 
+
     if(exact){
+
         return exact;
+
     }
 
 
-    let languageOnly =
-        languageCode.substring(0,2).toLowerCase();
+    let shortCode =
+    code.substring(0,2).toLowerCase();
 
 
-    return voices.find(function(voice){
+    return voices.find(function(v){
 
-        return voice.lang
+        return v.lang
         .toLowerCase()
-        .startsWith(languageOnly);
+        .startsWith(shortCode);
 
     }) || null;
 
 }
 
 
-/* =========================
+/* =========================================
    SPEAK
-========================= */
+========================================= */
 
 function speak(text){
 
     if(!("speechSynthesis" in window)){
 
-        alert("This browser does not support voice.");
+        alert(
+        "Voice is not supported by this browser."
+        );
 
         return;
 
     }
 
-    loadVoices();
 
-    let currentLanguage =
-        data[languageIndex];
+    let language =
+    languages[languageIndex];
+
 
     let voice =
-        findVoice(currentLanguage.code);
+    findVoice(language.code);
 
 
-    window.speechSynthesis.cancel();
+    speechSynthesis.cancel();
 
 
-    let speech =
-        new SpeechSynthesisUtterance(text);
+    let utterance =
+    new SpeechSynthesisUtterance(text);
 
 
-    speech.lang =
-        currentLanguage.code;
+    utterance.lang =
+    language.code;
 
-    speech.rate = 0.78;
+    utterance.rate =
+    0.78;
 
-    speech.pitch = 1;
+    utterance.pitch =
+    1;
 
-    speech.volume = 1;
+    utterance.volume =
+    1;
 
 
     if(voice){
 
-        speech.voice = voice;
+        utterance.voice =
+        voice;
 
     }
 
 
-    speech.onstart = function(){
-
-        updateVoiceStatus(
-            "🔊 Speaking"
-        );
-
-    };
-
-
-    speech.onend = function(){
-
-        updateVoiceStatus(
-            "🔊 Voice ready"
-        );
-
-    };
-
-
-    speech.onerror = function(){
-
-        updateVoiceStatus(
-            "⚠ Voice error"
-        );
-
-    };
-
-
-    window.speechSynthesis.speak(speech);
+    speechSynthesis.speak(
+    utterance
+    );
 
 }
 
 
-/* =========================
-   VOICE TEST
-========================= */
-
-function testVoice(){
-
-    let lang = data[languageIndex];
-
-    let voice = findVoice(lang.code);
-
-    if(!voice){
-
-        updateVoiceStatus(
-            "⚠ " + lang.name +
-            " voice not available"
-        );
-
-        alert(
-            lang.name +
-            " voice is not available on this phone/browser."
-        );
-
-        return;
-
-    }
-
-    speak(lang.voice.menu);
-
-}
-
-
-/* =========================
-   VOICE STATUS
-========================= */
-
-function updateVoiceStatus(text){
-
-    let box =
-        document.getElementById("voiceStatus");
-
-    if(box){
-
-        box.innerText = text;
-
-    }
-
-}
-
-
-/* =========================
-   RENDER
-========================= */
+/* =========================================
+   RENDER SCREEN
+========================================= */
 
 function render(){
 
     let screen =
-        document.getElementById("screenContent");
+    document.getElementById(
+    "screenContent"
+    );
+
 
     let lang =
-        data[languageIndex];
+    languages[languageIndex];
 
 
     /* NUMBER */
@@ -802,18 +1113,24 @@ function render(){
             ${lang.help}
         </div>
 
-        <button class="voiceTest"
-                onclick="testVoice()">
-            🔊 TEST VOICE
+        <button class="voice-button"
+                onclick="welcomeVoice()">
+
+            🔊 VOICE
+
         </button>
 
         <div id="voiceStatus"
              class="voice-status">
-            🔊 Voice ready
+
+            Ready
+
         </div>
+
         `;
 
         return;
+
     }
 
 
@@ -827,68 +1144,79 @@ function render(){
             SELECT LANGUAGE
         </div>
 
-        <div class="lang ${languageIndex===0?"selected":""}">
+        <div class="lang
+        ${languageIndex===0?"selected":""}">
+
             1. English
+
         </div>
 
-        <div class="lang ${languageIndex===1?"selected":""}">
+        <div class="lang
+        ${languageIndex===1?"selected":""}">
+
             2. தமிழ்
+
         </div>
 
-        <div class="lang ${languageIndex===2?"selected":""}">
+        <div class="lang
+        ${languageIndex===2?"selected":""}">
+
             3. मराठी
+
         </div>
 
-        <button class="voiceTest"
-                onclick="testVoice()">
-            🔊 TEST VOICE
+        <button class="voice-button"
+                onclick="speakLanguage()">
+
+            🔊 VOICE
+
         </button>
-
-        <div id="voiceStatus"
-             class="voice-status">
-            🔊 Voice ready
-        </div>
 
         `;
 
         return;
+
     }
 
 
-    /* MENU */
+    /* MAIN MENU */
 
     if(page === "menu"){
 
         screen.innerHTML = `
 
         <div class="menu-title">
+
             ${lang.menuTitle}
+
         </div>
 
         ${lang.menu.map(function(item,index){
 
             return `
+
             <div class="menu-row
             ${index===menuIndex?"selected":""}">
+
                 ${index+1}. ${item}
+
             </div>
+
             `;
 
         }).join("")}
 
-        <button class="voiceTest"
+        <button class="voice-button"
                 onclick="speakMenu()">
-            🔊 READ MENU
-        </button>
 
-        <div id="voiceStatus"
-             class="voice-status">
-            🔊 Voice ready
-        </div>
+            🔊 READ MENU
+
+        </button>
 
         `;
 
         return;
+
     }
 
 
@@ -896,12 +1224,46 @@ function render(){
 
     if(page === "info"){
 
-        let text =
-            lang.info[menuIndex];
+        let title =
+        lang.menu[menuIndex];
 
-        if(menuIndex === 4){
 
-            text += farmerNumber;
+        let content = "";
+
+
+        if(menuIndex === 0){
+
+            content = getCropInformation();
+
+        }
+
+
+        else if(menuIndex === 1){
+
+            content = getDiseaseInformation();
+
+        }
+
+
+        else if(menuIndex === 2){
+
+            content = getQuestions();
+
+        }
+
+
+        else if(menuIndex === 3){
+
+            content =
+            getOfficerInformation();
+
+        }
+
+
+        else if(menuIndex === 4){
+
+            content =
+            getMyNumber();
 
         }
 
@@ -909,22 +1271,23 @@ function render(){
         screen.innerHTML = `
 
         <div class="info-title">
-            ${lang.menu[menuIndex]}
+
+            ${title}
+
         </div>
 
-        <div class="info-box">
-            ${text.replace(/\n/g,"<br>")}
+        <div>
+
+            ${content}
+
         </div>
 
-        <button class="voiceTest"
-                onclick="speakInfo()">
+        <button class="voice-button"
+                onclick="speakCurrentInfo()">
+
             🔊 READ INFORMATION
-        </button>
 
-        <div id="voiceStatus"
-             class="voice-status">
-            🔊 Voice ready
-        </div>
+        </button>
 
         `;
 
@@ -933,9 +1296,558 @@ function render(){
 }
 
 
-/* =========================
-   KEYPAD
-========================= */
+/* =========================================
+   CROP INFORMATION
+========================================= */
+
+function getCropInformation(){
+
+    if(languageIndex === 0){
+
+        return `
+
+        <div class="info-box">
+
+        <b>🌾 Rice</b><br>
+        Rice requires suitable water,
+        healthy seeds and proper field
+        preparation.
+
+        <br><br>
+
+        <b>🌱 Tomato</b><br>
+        Tomato needs sunlight,
+        proper watering and healthy soil.
+
+        <br><br>
+
+        <b>🌽 General Tip</b><br>
+        Check the crop regularly for
+        insects, disease symptoms and
+        water problems.
+
+        </div>
+
+        `;
+
+    }
+
+
+    if(languageIndex === 1){
+
+        return `
+
+        <div class="info-box">
+
+        <b>🌾 நெல்</b><br>
+        நல்ல விதைகள், சரியான நீர்
+        மற்றும் நல்ல வயல் தயாரிப்பு
+        தேவை.
+
+        <br><br>
+
+        <b>🌱 தக்காளி</b><br>
+        போதுமான சூரிய ஒளி,
+        சரியான நீர்ப்பாசனம் மற்றும்
+        நல்ல மண் தேவை.
+
+        <br><br>
+
+        <b>🌿 பொதுவான அறிவுரை</b><br>
+        பூச்சிகள், நோய் அறிகுறிகள்
+        மற்றும் நீர் பிரச்சனைகளை
+        தொடர்ந்து கவனிக்கவும்.
+
+        </div>
+
+        `;
+
+    }
+
+
+    return `
+
+    <div class="info-box">
+
+    <b>🌾 भात</b><br>
+    चांगले बियाणे, योग्य पाणी
+    आणि शेताची योग्य तयारी आवश्यक आहे.
+
+    <br><br>
+
+    <b>🌱 टोमॅटो</b><br>
+    पुरेसा सूर्यप्रकाश, योग्य पाणी
+    आणि चांगली माती आवश्यक आहे.
+
+    <br><br>
+
+    <b>🌿 सामान्य सूचना</b><br>
+    किडे, रोगाची लक्षणे आणि
+    पाण्याच्या समस्या नियमित तपासा.
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   DISEASE INFORMATION
+========================================= */
+
+function getDiseaseInformation(){
+
+    let html = "";
+
+
+    for(let i=0;i<diseases.length;i++){
+
+        let d =
+        diseases[i];
+
+
+        html += `
+
+        <div class="disease-card">
+
+        <div class="disease-name">
+
+        ${i+1}. ${d.name[languageIndex]}
+
+        </div>
+
+        <b>
+        ${
+            languageIndex===0
+            ? "Symptoms:"
+            :
+            languageIndex===1
+            ? "அறிகுறிகள்:"
+            :
+            "लक्षणे:"
+        }
+        </b>
+
+        <br>
+
+        ${d.symptoms[languageIndex]}
+
+        <br><br>
+
+        <b>
+        ${
+            languageIndex===0
+            ? "Prevention:"
+            :
+            languageIndex===1
+            ? "தடுப்பு:"
+            :
+            "प्रतिबंध:"
+        }
+        </b>
+
+        <br>
+
+        ${d.prevention[languageIndex]}
+
+        </div>
+
+        `;
+
+    }
+
+
+    return html;
+
+}
+
+
+/* =========================================
+   QUESTIONS
+========================================= */
+
+function getQuestions(){
+
+    let html = "";
+
+
+    questions.forEach(function(q,index){
+
+        let text;
+
+
+        if(languageIndex === 0){
+
+            text = q.en;
+
+        }
+
+        else if(languageIndex === 1){
+
+            text = q.ta;
+
+        }
+
+        else{
+
+            text = q.mr;
+
+        }
+
+
+        html += `
+
+        <div class="disease-card">
+
+        <b>${index+1}.</b>
+        ${text}
+
+        </div>
+
+        `;
+
+    });
+
+
+    return html;
+
+}
+
+
+/* =========================================
+   OFFICER
+========================================= */
+
+function getOfficerInformation(){
+
+    if(languageIndex === 0){
+
+        return `
+
+        <div class="info-box">
+
+        <b>👨‍🌾 Agriculture Officer</b>
+
+        <br><br>
+
+        For crop-related help,
+        press the green CALL button.
+
+        <br><br>
+
+        The phone will open the
+        device calling application.
+
+        </div>
+
+        `;
+
+    }
+
+
+    if(languageIndex === 1){
+
+        return `
+
+        <div class="info-box">
+
+        <b>👨‍🌾 வேளாண்மை அலுவலர்</b>
+
+        <br><br>
+
+        விவசாய உதவிக்கு பச்சை
+        CALL பொத்தானை அழுத்தவும்.
+
+        <br><br>
+
+        தொலைபேசியின் calling
+        application திறக்கும்.
+
+        </div>
+
+        `;
+
+    }
+
+
+    return `
+
+    <div class="info-box">
+
+    <b>👨‍🌾 कृषी अधिकारी</b>
+
+    <br><br>
+
+    शेतीसंबंधी मदतीसाठी हिरवे
+    CALL बटन दाबा.
+
+    <br><br>
+
+    फोनचे calling application
+    उघडेल.
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   MY NUMBER
+========================================= */
+
+function getMyNumber(){
+
+    if(languageIndex === 0){
+
+        return `
+
+        <div class="info-box">
+
+        Your farmer number:
+
+        <br><br>
+
+        <b>${farmerNumber}</b>
+
+        </div>
+
+        `;
+
+    }
+
+
+    if(languageIndex === 1){
+
+        return `
+
+        <div class="info-box">
+
+        உங்கள் விவசாயி எண்:
+
+        <br><br>
+
+        <b>${farmerNumber}</b>
+
+        </div>
+
+        `;
+
+    }
+
+
+    return `
+
+    <div class="info-box">
+
+    तुमचा शेतकरी नंबर:
+
+    <br><br>
+
+    <b>${farmerNumber}</b>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   CURRENT INFO VOICE
+========================================= */
+
+function speakCurrentInfo(){
+
+    if(menuIndex === 0){
+
+        if(languageIndex === 0){
+
+            speak(
+            "Crop information. Rice requires suitable water, healthy seeds and proper field preparation. Tomato needs sunlight, proper watering and healthy soil. Check crops regularly for insects, diseases and water problems."
+            );
+
+        }
+
+        else if(languageIndex === 1){
+
+            speak(
+            "பயிர் தகவல். நெல் பயிருக்கு நல்ல விதைகள், சரியான நீர் மற்றும் நல்ல வயல் தயாரிப்பு தேவை. தக்காளிக்கு போதுமான சூரிய ஒளி, சரியான நீர்ப்பாசனம் மற்றும் நல்ல மண் தேவை. பூச்சிகள் மற்றும் நோய் அறிகுறிகளை தொடர்ந்து கவனிக்கவும்."
+            );
+
+        }
+
+        else{
+
+            speak(
+            "पीक माहिती. भातासाठी चांगले बियाणे, योग्य पाणी आणि शेताची योग्य तयारी आवश्यक आहे. टोमॅटोसाठी पुरेसा सूर्यप्रकाश, योग्य पाणी आणि चांगली माती आवश्यक आहे."
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    if(menuIndex === 1){
+
+        /* Disease voice */
+
+        for(let i=0;i<diseases.length;i++){
+
+            let d =
+            diseases[i];
+
+            let text;
+
+
+            if(languageIndex === 0){
+
+                text =
+                d.name[0] +
+                ". Symptoms: " +
+                d.symptoms[0] +
+                ". Prevention: " +
+                d.prevention[0];
+
+            }
+
+            else if(languageIndex === 1){
+
+                text =
+                d.name[1] +
+                ". அறிகுறிகள்: " +
+                d.symptoms[1] +
+                ". தடுப்பு: " +
+                d.prevention[1];
+
+            }
+
+            else{
+
+                text =
+                d.name[2] +
+                ". लक्षणे: " +
+                d.symptoms[2] +
+                ". प्रतिबंध: " +
+                d.prevention[2];
+
+            }
+
+
+            setTimeout(function(){
+
+                speak(text);
+
+            },i * 3500);
+
+        }
+
+        return;
+
+    }
+
+
+    if(menuIndex === 2){
+
+        speakQuestions();
+
+        return;
+
+    }
+
+
+    if(menuIndex === 3){
+
+        if(languageIndex === 0){
+
+            speak(
+            "Agriculture officer. Press the green call button for farming assistance."
+            );
+
+        }
+
+        else if(languageIndex === 1){
+
+            speak(
+            "வேளாண்மை அலுவலர். விவசாய உதவிக்கு பச்சை கால் பொத்தானை அழுத்தவும்."
+            );
+
+        }
+
+        else{
+
+            speak(
+            "कृषी अधिकारी. शेतीच्या मदतीसाठी हिरवे कॉल बटन दाबा."
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    if(menuIndex === 4){
+
+        speak(
+        languages[languageIndex].voice.number
+        + " "
+        + farmerNumber
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   QUESTION VOICE
+========================================= */
+
+function speakQuestions(){
+
+    questions.forEach(function(q,index){
+
+        let text;
+
+
+        if(languageIndex === 0){
+
+            text = q.en;
+
+        }
+
+        else if(languageIndex === 1){
+
+            text = q.ta;
+
+        }
+
+        else{
+
+            text = q.mr;
+
+        }
+
+
+        setTimeout(function(){
+
+            speak(text);
+
+        },index * 2500);
+
+    });
+
+}
+
+
+/* =========================================
+   NUMBER KEYPAD
+========================================= */
 
 function keyPress(key){
 
@@ -943,7 +1855,10 @@ function keyPress(key){
 
     if(page === "number"){
 
-        if(key >= "0" && key <= "9"){
+        if(
+        key >= "0" &&
+        key <= "9"
+        ){
 
             if(farmerNumber.length < 10){
 
@@ -953,22 +1868,38 @@ function keyPress(key){
 
             }
 
-            return;
+
+            if(farmerNumber.length === 10){
+
+                setTimeout(function(){
+
+                    page = "language";
+
+                    render();
+
+                    speak(
+                    languages[languageIndex]
+                    .voice.language
+                    );
+
+                },500);
+
+            }
+
         }
 
 
-        if(key === "*"){
+        else if(key === "*"){
 
             farmerNumber =
-                farmerNumber.slice(0,-1);
+            farmerNumber.slice(0,-1);
 
             render();
 
-            return;
         }
 
 
-        if(key === "#"){
+        else if(key === "#"){
 
             if(farmerNumber.length === 10){
 
@@ -977,26 +1908,29 @@ function keyPress(key){
                 render();
 
                 speak(
-                    data[languageIndex]
-                    .voice.language
-                );
-
-            }else{
-
-                speak(
-                    data[languageIndex]
-                    .voice.invalid
+                languages[languageIndex]
+                .voice.language
                 );
 
             }
 
-            return;
+            else{
+
+                speak(
+                languages[languageIndex]
+                .voice.invalid
+                );
+
+            }
+
         }
+
+        return;
 
     }
 
 
-    /* LANGUAGE */
+    /* LANGUAGE PAGE */
 
     if(page === "language"){
 
@@ -1004,27 +1938,28 @@ function keyPress(key){
 
             languageIndex = 0;
 
-            chooseLanguage();
+            openMenu();
 
         }
 
-        if(key === "2"){
+        else if(key === "2"){
 
             languageIndex = 1;
 
-            chooseLanguage();
+            openMenu();
 
         }
 
-        if(key === "3"){
+        else if(key === "3"){
 
             languageIndex = 2;
 
-            chooseLanguage();
+            openMenu();
 
         }
 
         return;
+
     }
 
 
@@ -1032,19 +1967,20 @@ function keyPress(key){
 
     if(page === "menu"){
 
-        let number =
-            parseInt(key);
+        let n =
+        parseInt(key);
 
-        if(number >= 1 && number <= 5){
+
+        if(n >= 1 && n <= 5){
 
             menuIndex =
-                number - 1;
+            n - 1;
 
             page = "info";
 
             render();
 
-            speakInfo();
+            speakCurrentInfo();
 
         }
 
@@ -1053,94 +1989,90 @@ function keyPress(key){
 }
 
 
-/* =========================
-   LANGUAGE
-========================= */
+/* =========================================
+   OPEN MENU
+========================================= */
 
-function chooseLanguage(){
+function openMenu(){
+
+    page = "menu";
+
+    menuIndex = 0;
 
     render();
 
     setTimeout(function(){
 
-        page = "menu";
-
-        render();
-
         speak(
-            data[languageIndex]
-            .voice.menu
+        languages[languageIndex]
+        .voice.menu
         );
 
-    },500);
+    },300);
 
 }
 
 
-/* =========================
-   MENU VOICE
-========================= */
+/* =========================================
+   LANGUAGE VOICE
+========================================= */
 
-function speakMenu(){
+function speakLanguage(){
 
     speak(
-        data[languageIndex]
-        .voice.menu
+    languages[languageIndex]
+    .voice.language
     );
 
 }
 
 
-/* =========================
-   INFO VOICE
-========================= */
+/* =========================================
+   WELCOME VOICE
+========================================= */
 
-function speakInfo(){
+function welcomeVoice(){
 
-    let voice =
-        data[languageIndex].voice;
-
-
-    if(menuIndex === 0){
-
-        speak(voice.crop);
-
-    }
-
-    else if(menuIndex === 1){
-
-        speak(voice.disease);
-
-    }
-
-    else if(menuIndex === 2){
-
-        speak(voice.questions);
-
-    }
-
-    else if(menuIndex === 3){
-
-        speak(voice.officer);
-
-    }
-
-    else if(menuIndex === 4){
-
-        speak(
-            voice.mynumber +
-            " " +
-            farmerNumber
-        );
-
-    }
+    speak(
+    languages[languageIndex]
+    .voice.welcome
+    );
 
 }
 
 
-/* =========================
+/* =========================================
+   MENU VOICE
+========================================= */
+
+function speakMenu(){
+
+    let lang =
+    languages[languageIndex];
+
+    let text =
+    lang.menuTitle +
+    ". ";
+
+    lang.menu.forEach(function(item,index){
+
+        text +=
+        (index+1) +
+        ". " +
+        item +
+        ". ";
+
+    });
+
+
+    speak(text);
+
+}
+
+
+/* =========================================
    DPAD UP
-========================= */
+========================================= */
 
 function moveUp(){
 
@@ -1157,6 +2089,7 @@ function moveUp(){
         render();
 
     }
+
 
     else if(page === "menu"){
 
@@ -1175,9 +2108,9 @@ function moveUp(){
 }
 
 
-/* =========================
+/* =========================================
    DPAD DOWN
-========================= */
+========================================= */
 
 function moveDown(){
 
@@ -1194,6 +2127,7 @@ function moveDown(){
         render();
 
     }
+
 
     else if(page === "menu"){
 
@@ -1212,9 +2146,9 @@ function moveDown(){
 }
 
 
-/* =========================
-   LEFT
-========================= */
+/* =========================================
+   DPAD LEFT
+========================================= */
 
 function moveLeft(){
 
@@ -1231,9 +2165,9 @@ function moveLeft(){
 }
 
 
-/* =========================
-   RIGHT
-========================= */
+/* =========================================
+   DPAD RIGHT
+========================================= */
 
 function moveRight(){
 
@@ -1245,36 +2179,12 @@ function moveRight(){
 
             render();
 
-            speak(
-                data[languageIndex]
-                .voice.language
-            );
-
-        }else{
-
-            speak(
-                data[languageIndex]
-                .voice.invalid
-            );
+            speakLanguage();
 
         }
 
     }
 
-}
-
-
-/* =========================
-   OK
-========================= */
-
-function selectButton(){
-
-    if(page === "language"){
-
-        chooseLanguage();
-
-    }
 
     else if(page === "menu"){
 
@@ -1282,20 +2192,46 @@ function selectButton(){
 
         render();
 
-        speakInfo();
+        speakCurrentInfo();
 
     }
 
 }
 
 
-/* =========================
-   END
-========================= */
+/* =========================================
+   OK BUTTON
+========================================= */
 
-function endButton(){
+function selectOK(){
 
-    window.speechSynthesis.cancel();
+    if(page === "language"){
+
+        openMenu();
+
+    }
+
+
+    else if(page === "menu"){
+
+        page = "info";
+
+        render();
+
+        speakCurrentInfo();
+
+    }
+
+}
+
+
+/* =========================================
+   BACK / END BUTTON
+========================================= */
+
+function goBack(){
+
+    speechSynthesis.cancel();
 
 
     if(page === "number"){
@@ -1306,6 +2242,7 @@ function endButton(){
 
     }
 
+
     else if(page === "language"){
 
         page = "number";
@@ -1314,6 +2251,7 @@ function endButton(){
 
     }
 
+
     else if(page === "menu"){
 
         page = "language";
@@ -1321,6 +2259,7 @@ function endButton(){
         render();
 
     }
+
 
     else if(page === "info"){
 
@@ -1333,17 +2272,17 @@ function endButton(){
 }
 
 
-/* =========================
-   CALL
-========================= */
+/* =========================================
+   CALL OFFICER
+========================================= */
 
-function callButton(){
+function callOfficer(){
 
     if(farmerNumber.length !== 10){
 
         speak(
-            data[languageIndex]
-            .voice.invalid
+        languages[languageIndex]
+        .voice.invalid
         );
 
         return;
@@ -1351,39 +2290,38 @@ function callButton(){
     }
 
 
-    let message;
-
-
     if(languageIndex === 0){
 
-        message =
-        "Connecting to agriculture officer.";
+        speak(
+        "Connecting to agriculture officer."
+        );
 
     }
 
     else if(languageIndex === 1){
 
-        message =
-        "வேளாண்மை அலுவலரை தொடர்பு கொள்கிறோம்.";
+        speak(
+        "வேளாண்மை அலுவலரை தொடர்பு கொள்கிறோம்."
+        );
 
     }
 
     else{
 
-        message =
-        "कृषी अधिकाऱ्याशी संपर्क साधत आहोत.";
+        speak(
+        "कृषी अधिकाऱ्याशी संपर्क साधत आहोत."
+        );
 
     }
-
-
-    speak(message);
 
 
     setTimeout(function(){
 
         /*
-        Demo agriculture helpline.
-        Change this number if needed.
+        DEMO AGRICULTURE HELPLINE
+
+        Change this number if your
+        project uses another number.
         */
 
         window.location.href =
@@ -1394,114 +2332,122 @@ function callButton(){
 }
 
 
-/* =========================
+/* =========================================
    CLOCK
-========================= */
+========================================= */
 
 function updateClock(){
 
-    let now = new Date();
+    let now =
+    new Date();
 
-    let hours =
-        String(now.getHours())
-        .padStart(2,"0");
 
-    let minutes =
-        String(now.getMinutes())
-        .padStart(2,"0");
+    let h =
+    String(now.getHours())
+    .padStart(2,"0");
+
+
+    let m =
+    String(now.getMinutes())
+    .padStart(2,"0");
+
 
     document.getElementById("clock")
     .innerText =
-        hours + ":" + minutes;
+    h + ":" + m;
 
 }
 
-setInterval(updateClock,1000);
+
+setInterval(
+updateClock,
+1000
+);
 
 updateClock();
 
 
-/* =========================
-   KEYBOARD
-========================= */
+/* =========================================
+   KEYBOARD SUPPORT
+========================================= */
 
 document.addEventListener(
 "keydown",
-function(event){
+function(e){
 
     if(
-        event.key >= "0" &&
-        event.key <= "9"
+    e.key >= "0" &&
+    e.key <= "9"
     ){
 
-        keyPress(event.key);
+        keyPress(e.key);
 
     }
 
-    else if(event.key === "*"){
+
+    else if(e.key === "*"){
 
         keyPress("*");
 
     }
 
-    else if(event.key === "#"){
+
+    else if(e.key === "#"){
 
         keyPress("#");
 
     }
 
-    else if(event.key === "ArrowUp"){
+
+    else if(e.key === "ArrowUp"){
 
         moveUp();
 
     }
 
-    else if(event.key === "ArrowDown"){
+
+    else if(e.key === "ArrowDown"){
 
         moveDown();
 
     }
 
-    else if(event.key === "ArrowLeft"){
+
+    else if(e.key === "ArrowLeft"){
 
         moveLeft();
 
     }
 
-    else if(event.key === "ArrowRight"){
+
+    else if(e.key === "ArrowRight"){
 
         moveRight();
 
     }
 
-    else if(event.key === "Enter"){
 
-        selectButton();
+    else if(e.key === "Enter"){
+
+        selectOK();
 
     }
 
-    else if(event.key === "Escape"){
 
-        endButton();
+    else if(e.key === "Escape"){
+
+        goBack();
 
     }
 
 });
 
 
-/* =========================
+/* =========================================
    START
-========================= */
+========================================= */
 
 render();
-
-setTimeout(function(){
-
-    loadVoices();
-
-    render();
-
-},1000);
 
 </script>
 
